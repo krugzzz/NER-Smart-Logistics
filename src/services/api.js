@@ -4,13 +4,34 @@ export const api = {
   createVehicle: async (vehicleData) => {
     const response = await fetch(`${API_BASE_URL}/vehicles/`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(vehicleData),
     });
+
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(errorData.detail || "Failed to register vehicle");
     }
+
+    return response.json();
+  },
+
+  createTrip: async (tripData) => {
+    const response = await fetch(`${API_BASE_URL}/trips/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(tripData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.detail || "Failed to create trip");
+    }
+
     return response.json();
   },
 };
