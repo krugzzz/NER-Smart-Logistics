@@ -1,4 +1,5 @@
 import React from 'react';
+import NERMap from '../../components/NERMap';
 import { useNavigate } from 'react-router-dom';
 import StatCard from '../../components/StatCard';
 import Button from '../../components/Button';
@@ -29,12 +30,8 @@ const OperatorDashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-gray-200 border-2 border-dashed border-gray-300 rounded-lg min-h-[400px] flex items-center justify-center">
-          <div className="text-center">
-            <Map size={48} className="mx-auto text-gray-400 mb-4" />
-            <h3 className="text-xl font-bold text-gray-600 mb-2">Live NER Logistics Map</h3>
-            <p className="text-gray-500">Integration Coming Next</p>
-          </div>
+        <div className="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+          <NERMap height="400px" />
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 flex flex-col">
